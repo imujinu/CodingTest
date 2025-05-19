@@ -9,14 +9,23 @@ public class Hotel {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int range = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i= 0; i<range ; i++){
+        StringTokenizer st = new StringTokenizer(br.readLine());
             int h = Integer.parseInt(st.nextToken());
             int x = Integer.parseInt(st.nextToken());
             int guestNumber = Integer.parseInt(st.nextToken());
 
+            int floor = guestNumber%h;
+            int roomNumber = guestNumber/h+1;
 
+            if(floor==0){
+                floor=h;
+                roomNumber--;
+            }
 
+            bw.write(floor + String.format("%02d", roomNumber) + "\n");
         }
+        bw.close();
+        br.close();
     }
 }
