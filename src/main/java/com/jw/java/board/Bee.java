@@ -5,7 +5,7 @@ import java.io.*;
 public class Bee {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw= new BufferedWriter(new OutputStreamWriter(System.out));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int number = Integer.parseInt(br.readLine());
         int count = 1;
