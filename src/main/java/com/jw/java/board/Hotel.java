@@ -13,15 +13,12 @@ public class Hotel {
         StringTokenizer st = new StringTokenizer(br.readLine());
             int h = Integer.parseInt(st.nextToken());
             int x = Integer.parseInt(st.nextToken());
-            int guestNumber = Integer.parseInt(st.nextToken());
+            int guest = Integer.parseInt(st.nextToken());
 
-            int floor = guestNumber%h;
-            int roomNumber = guestNumber/h+1;
+            int floor = guest%h==0 ? h : guest%h;
+            int roomNumber = guest%h == 0? guest/h : guest/h+1;
 
-            if(floor==0){
-                floor=h;
-                roomNumber--;
-            }
+
 
             bw.write(floor + String.format("%02d", roomNumber) + "\n");
         }
