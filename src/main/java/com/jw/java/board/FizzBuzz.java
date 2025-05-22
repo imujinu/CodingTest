@@ -1,6 +1,7 @@
 package com.jw.java.board;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class FizzBuzz {
     public static void main(String[] args)throws IOException {
@@ -12,11 +13,11 @@ public class FizzBuzz {
 
         }
         String[] list = new String[3];
-        for(int i=0; i<10000; i++){
+        for(int i=0; i<1000000; i++){
             list[0]= Fizzbuzz(i);
             list[1]=Fizzbuzz(i+1);
             list[2]=Fizzbuzz(i+2);
-            if(og.equals(list)){
+            if(Arrays.equals(og, list)){
                 bw.write(Fizzbuzz(i+3));
                 break;
             };
@@ -27,12 +28,10 @@ public class FizzBuzz {
     }
     public static String Fizzbuzz(int num){
         String result = "";
-        for(int i =0; i<15; i++){
-            if(num%3==0)result = "Fizz";
+            if(num%15==0)result= "FizzBuzz";
+            else if(num%3==0)result = "Fizz";
             else if(num%5==0)result = "Buzz";
-            else if(num%3==0 && num%5==0)result= "FizzBuzz";
             else result = String.valueOf(num);
-        }
         return result;
     }
 
