@@ -1,6 +1,5 @@
-package com.jw.java.board;
+package com.jw.java.board.past;
 
-import javax.imageio.IIOException;
 import java.io.*;
 import java.util.StringTokenizer;
 

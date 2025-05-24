@@ -1,4 +1,4 @@
-package com.jw.java.board;
+package com.jw.java.board.past;
 
 public class Barking2 {
     public static void main(String[] args) {

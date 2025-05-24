@@ -1,4 +1,4 @@
-package com.jw.java.board;
+package com.jw.java.board.past;
 import java.util.*;
 import java.io.*;
 
