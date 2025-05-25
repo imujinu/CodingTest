@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
-public class Virus {
+public class Virus2 {
     static boolean[][] graph;
     static boolean[] visited;
     static int N, M;
