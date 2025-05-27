@@ -14,10 +14,7 @@ public class Balance {
 
         String str = br.readLine();
         if(String.valueOf(str.charAt(0)).equals("."))break;
-        else if(str.trim().equals(".")){
-            bw.write("yes" + "\n");
-            break;
-        }
+
         for(int i =0; i<str.length() ; i++){
             if(str.charAt(i) == '[' || str.charAt(i) == '(')stack.push(String.valueOf(str.charAt(i)));
         }
