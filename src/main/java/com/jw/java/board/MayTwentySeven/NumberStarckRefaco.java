@@ -27,6 +27,9 @@ public class NumberStarckRefaco {
             if (stack.peek() == target) {
                 stack.pop();
                 sb.append("-\n");
+                //이게 왜 이렇게 되지? target이랑 peek가 같지 않다는게 다음에 들어온 수랑 지금까지의 최고값이랑 맞지 않다 이솔리잖아
+                // peek의 의미가 뭐야. 내가 다음에 꺼낼 수 있는 최대 수
+                // 근데 예를 들어
             } else {
                 // 아니라면 불가능
                 possible = false;

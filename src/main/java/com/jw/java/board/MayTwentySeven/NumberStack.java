@@ -8,7 +8,7 @@ public class NumberStack {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
+        StringBuilder sb = new StringBuilder();
         int N = Integer.parseInt(br.readLine());
         Stack<Integer> stack = new Stack<>();
         int push=1;
@@ -18,25 +18,22 @@ public class NumberStack {
             int number = Integer.parseInt(st.nextToken());
 
             while(push<=number){
-                stack.add(push);
-                bw.write("+\n");
-                push++;
+                stack.add(push++);
+                sb.append("+\n");
             }
 
 
-            if(stack.peek()==number){
+            if(!stack.isEmpty()&& stack.peek()==number){
                 stack.pop();
-                bw.write("-\n");
-            }else if(stack.peek()<number){
-                isTrue = false;
-                    break;
+                sb.append("-\n");
             }
-
-            if(isTrue)bw.write("NO");
-            else for(String str : stack)
-
-
-
+            else{
+                isTrue=false;
+                break;
+            }
         }
+            bw.write(isTrue? sb.toString():"\nNo");
+        bw.close();
+        br.close();
     }
 }

@@ -43,6 +43,7 @@ public class WordArray2 {
                         String string2 = str[i];
                         str[i] = str[i+1];
                         str[i+1] = string2;
+                        break;
                     }
                 }
             }
