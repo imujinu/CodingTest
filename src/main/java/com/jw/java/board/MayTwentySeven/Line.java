@@ -30,7 +30,6 @@ public class Line {
                 bw.write(String.valueOf(mid));
                 break;
             }
-            else if()
 
         }
 
