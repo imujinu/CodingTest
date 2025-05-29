@@ -23,7 +23,7 @@ public class NumberStack {
             }
 
 
-            if(!stack.isEmpty()&& stack.peek()==number){
+            if(!stack.isEmpty()&& number==stack.peek()){
                 stack.pop();
                 sb.append("-\n");
             }
@@ -32,7 +32,7 @@ public class NumberStack {
                 break;
             }
         }
-            bw.write(isTrue? sb.toString():"\nNo");
+        bw.write(isTrue? sb.toString():"NO");
         bw.close();
         br.close();
     }
