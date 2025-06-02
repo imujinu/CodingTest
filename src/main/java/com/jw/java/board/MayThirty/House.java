@@ -20,13 +20,37 @@ public class House {
                 house[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        int[][] color = new int[N][1];
+        int[][] color = new int[N][2];
 
-        for(int i=0; i<N; i++){
-            int min=0;
-            for(int j=0; j<3; j++){
-                if(min<color[i][j]
+        for(int i=0; i<3; i++){
+            int min = house[1][0];
+            if(min>house[0][i]){
+                min=house[0][i];
+                color[0][0]=min;
+                color[0][1]=i;
             }
         }
+
+        for(int i=1; i<N; i++){
+            int idx = house[i][1];
+            int min=house[i][0];
+            for(int j=0; j<3; j++){
+                if(min>house[i][j] && idx!=j){
+                    min= house[i][j];
+                    color[i][0]=min;
+                    color[i][1]=j;
+                }
+            }
+        }
+
+        int sum = 0;
+
+        for(int i=0; i<N; i++){
+            sum+=color[i][0];
+        }
+
+        bw.write(String.valueOf(sum));
+        bw.close();
+        br.close();
     }
 }
