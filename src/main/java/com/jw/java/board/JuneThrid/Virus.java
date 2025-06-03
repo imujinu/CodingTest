@@ -13,8 +13,13 @@ public class Virus {
         N= Integer.parseInt(br.readLine());
         M = Integer.parseInt(br.readLine());
         virus = new boolean[N][N];
+        visited = new boolean[N];
         for(int i=0; i<M; i++){
-            if()
+            for(int j =0; j<N; j++){
+                for(int k=0; k<N; k++){
+                    if(virus[j][k]==1 && visited[] )
+                }
+            }
         }
 
 
