@@ -9,7 +9,7 @@ public class Cabage {
     static int[] dx = { 1, -1, 0, 0 };
     static int[] dy = { 0, 0, 1, -1 };
     static int N,M, K ;
-    static int count;
+
     static void dfs(int x, int y){
         visited[x][y] = true;
 
@@ -29,14 +29,15 @@ public class Cabage {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int N = Integer.parseInt(br.readLine());
+        int R = Integer.parseInt(br.readLine());
 
-        for(int i =0; i<N; i++){
+        for(int i =0; i<R; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             N = Integer.parseInt(st.nextToken());
             M = Integer.parseInt(st.nextToken());
             K = Integer.parseInt(st.nextToken());
-             field = new int[N][M];
+            int count=0;
+            field = new int[N][M];
             visited = new boolean[N][M];
 
             for(int j =0; j<K; j++){
@@ -48,15 +49,15 @@ public class Cabage {
 
             for(int x=0; x<N; x++){
                 for(int y=0; y<M ; y++){
-                  if(field[x][x]==1 && !visited[x][y] ){
+                  if(field[x][y]==1 && !visited[x][y] ){
                       dfs(x,y);
                       count++;
                   }
                 }
             }
 
+        bw.write(String.valueOf(count)+"\n");
         }
-        bw.write(String.valueOf(count));
         bw.close();
         br.close();
 
