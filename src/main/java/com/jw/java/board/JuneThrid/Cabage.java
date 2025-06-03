@@ -50,6 +50,9 @@ public class Cabage {
             for(int x=0; x<N; x++){
                 for(int y=0; y<M ; y++){
                   if(field[x][y]==1 && !visited[x][y] ){
+                      //해당 구역에 배추가 심어져있고, 방문한적이 없다면 dfs수행
+                      // dfs는 해당 구역을 1로 바꾸고, 상하좌우로 인접한 구역의 값을 1로 바꿔준다.
+
                       dfs(x,y);
                       count++;
                   }
