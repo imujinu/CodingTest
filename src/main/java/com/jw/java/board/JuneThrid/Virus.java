@@ -17,7 +17,6 @@ public class Virus {
         for(int i=0; i<M; i++){
             for(int j =0; j<N; j++){
                 for(int k=0; k<N; k++){
-                    if(virus[j][k]==1 && visited[] )
                 }
             }
         }
