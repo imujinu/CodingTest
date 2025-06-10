@@ -13,7 +13,6 @@ public class Plus {
         int[] numbers = new int[Math.max(4,M+1)];
         numbers[1]= 1;
         numbers[2] = 2;
-        numbers[3]=4;
 
 
         for(int j =4; j<=M; j++){
@@ -26,7 +25,6 @@ public class Plus {
 
         bw.close();
         br.close();
-
     }
 }
 
