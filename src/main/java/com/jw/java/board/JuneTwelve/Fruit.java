@@ -17,7 +17,6 @@ public class Fruit {
             fruitBox[i]=Integer.parseInt(st.nextToken());
         }
         HashMap<Integer,Integer> box = new HashMap<>();
-        // 순회하면서 hasMap에 넣다가 만약에
             int left = 0;
             int length = Integer.MIN_VALUE;
 
@@ -31,10 +30,10 @@ public class Fruit {
                     box.put(searchFruit,box.get(searchFruit)-1);
 
 
-                    if(box.get(searchFruit)==0){
-                        box.remove(searchFruit);
-                    }
-                    left++;
+                if (box.get(searchFruit) == 0) {
+                    box.remove(searchFruit);
+                }
+                left++;
 
             }
                 length = Math.max(length, i-left+1 );
