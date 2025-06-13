@@ -25,10 +25,12 @@ public class PrinterQueue {
             }
 
             int num =0 ;
-            if(b!=0){
 
-            for(int j=0; j<b; j++){
-                if(j==b-1){
+
+            if(b!=0){
+            //해당 숫자가 가장 앞에 있지 않을 경우에만 실행한다.
+            for(int j=1; j<=b; j++){
+                if(j==b){
                     num = deque.poll();
                     break;
                 }
@@ -36,19 +38,37 @@ public class PrinterQueue {
                 deque.add(temp);
 
             }
+
+
+
+            }else{
+            num = deque.peek();
+
             }
+
+            if(!deque.isEmpty()){
+
             while(true){
-               int temp =  deque.peek();
-               if(temp<=num)deque.poll();
-               else break;
+
+                int temp = deque.peek();
+                if(temp<=num)deque.poll();
+                else break;
             }
 
             while (!deque.isEmpty()){
-                deque.pollLast();
-                count++;
+                if(num<=deque.pollLast()){
+                    count++;
+                }
+
+            }
+                bw.write(String.valueOf(count)+"\n");
+
+            }
+            else{
+                bw.write("1\n");
             }
 
-            bw.write(String.valueOf(count)+"\n");
+
         }
 
             bw.close();
