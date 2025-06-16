@@ -17,11 +17,10 @@ public class Marathon {
         for(int i=0; i<completion.length; i++){
             String man = completion[i];
             int partiValue = parti.get(man);
-            int compleValue = comple.ge(man);
+            int compleValue = comple.get(man);
             if(partiValue!=compleValue)answer=man;
         }
 
-        return answer;
 
 
     }

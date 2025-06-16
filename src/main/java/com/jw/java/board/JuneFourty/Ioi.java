@@ -1,7 +1,6 @@
 package com.jw.java.board.JuneFourty;
 
 import java.io.*;
-import java.util.*;
 
 public class Ioi {
     public static void main(String[] args)throws IOException {
@@ -10,29 +9,24 @@ public class Ioi {
     int N = Integer.parseInt(br.readLine());
     int M = Integer.parseInt(br.readLine());
     String string = br.readLine();
+    int count =0 ;
+    int temp =0;
 
-    int count =0;
-
-    for(int i=0; i<M; i++){
-        if(string.charAt(i)=='I'){
-            int temp =0;
-            for(int j=i+1; j<M-1; j++){
-                if(string.charAt(j)=='O' && string.charAt(j+1)=='I'){
-                    temp++;
-                    j++;
-                }
-                if(temp==N){
+        for (int i = 1; i < M - 1; i++) {
+            if (string.charAt(i - 1) == 'I' && string.charAt(i) == 'O' && string.charAt(i + 1) == 'I') {
+                temp++;
+                if (temp == N) {
                     count++;
                     temp--;
                 }
+                i++;
+            } else {
+                temp = 0;
             }
-
         }
-    }
-
 
         bw.write(String.valueOf(count));
-        bw.close();
+    bw.close();
 
 
 
