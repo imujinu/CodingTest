@@ -11,6 +11,7 @@ public class Card {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringBuilder sb = new StringBuilder();
+
         int N = Integer.parseInt(br.readLine());
         Set<Integer> set1 = new LinkedHashSet<>();
         Set<Integer> set2 = new LinkedHashSet<>();
