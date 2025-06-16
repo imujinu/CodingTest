@@ -22,7 +22,7 @@ public class Ac {
             for(int j=0; j<list.length; j++){
                 char ch = list[j];
 
-                if(ch=='R')Arrays.
+//                if(ch=='R')
             }
 
         }
