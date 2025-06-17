@@ -6,7 +6,8 @@ import java.util.Queue;
 
 public class PrQ {
     public static void main(String[] args) throws IOException {
-
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int N = Integer.parseInt(br.readLine());
         Queue<Integer> pq = new PriorityQueue<>();
         for(int i=0; i<N; i++){
