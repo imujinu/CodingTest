@@ -11,6 +11,5 @@ public class NumArr2 {
         int M= Integer.parseInt(br.readLine());
         TreeSet<int[]> set = new TreeSet<>();
 
-        for(int i=1; i<N; i++)
     }
 }
