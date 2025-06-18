@@ -1,4 +1,4 @@
-package com.jw.java.board.JuneSeventeen;
+package com.jw.java.board.June.JuneSeventeen;
 
 import java.io.*;
 import java.util.*;

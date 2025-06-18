@@ -1,7 +1,6 @@
-package com.jw.java.board.JuneSeventeen;
+package com.jw.java.board.June.JuneSeventeen;
 
 import java.io.*;
-import java.net.Inet4Address;
 
 public class Sqrt {
     public static void main(String[] args) throws IOException {
