@@ -3,13 +3,12 @@ package com.jw.java.board.June.JuneEighteen;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class Nm2Refactoring {
-    static int N,M;
+public class Nm4 {
     static int[] arr;
+    static int N,M;
     static StringBuilder sb;
-
     static void dfs(int start, int depth){
-        if(depth == M){
+        if(depth==M){
             for(int n : arr){
                 sb.append(n).append(" ");
             }
@@ -17,14 +16,13 @@ public class Nm2Refactoring {
             return;
         }
 
-        //이전 값이 들어가면 안되니까 시작 지점을 늘려주면 된다.
-
         for(int i=start; i<N; i++){
+            //i는 출발 노드를 의미
+            //출발 노드가 동적으로 변해야 하니까 인자인 start를 받아서 초기화해줌.
+            //dfs는 출발 노드와 똑같은 값부터 시작하니까 i를 그대로 넘겨준다.
+
             arr[depth] = i+1;
-            dfs(i+1, depth+1);
-            // i는 각 메서드 호출 시점의 값을 의미한다.
-            // 1-2/3/4
-            // 2-3/4
+            dfs(i,depth+1);
         }
 
 
@@ -35,11 +33,10 @@ public class Nm2Refactoring {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        arr= new int[M];
-        sb = new StringBuilder();
+       arr = new int[M];
+       sb = new StringBuilder();
 
-        dfs(0,0);
+       dfs(0,0);
         System.out.println(sb);
-
     }
 }
