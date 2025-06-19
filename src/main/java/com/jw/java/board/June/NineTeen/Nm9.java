@@ -31,10 +31,6 @@ public class Nm9 {
             visited[i]= false;
         }
 
-
-
-
-
     }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
