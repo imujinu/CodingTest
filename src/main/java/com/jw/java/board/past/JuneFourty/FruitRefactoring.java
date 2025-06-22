@@ -19,6 +19,7 @@ public class FruitRefactoring {
             int num = Integer.parseInt(st.nextToken());
             map.put(num , map.getOrDefault(num,0)+1);
             list.add(num);
+
             while (map.size()>2){
                 // 탕후루의 과일이 3종류가 된 순간 과일을 제거하기 시작한다.
                 int idx = list.get(left);
