@@ -19,20 +19,23 @@ public class Sumba3 {
             int[] arr = queue.poll();
             int temp = arr[0];
             int time = arr[1];
+            if(visited[temp])continue;
+            visited[temp]=true;
+
             if(temp ==M){
                 result=time;
                 return;
             }
             for(int i=0; i<2; i++){
                 int cx = dx[i] + temp;
-                if(cx>=0 && cx<Max && !visited[cx]){
-                 visited[cx]=true;
+                if(cx>=0 && cx<Max){
+
                 queue.addLast(new int[]{cx,time+1});
                 }
             }
             int cx = temp*2;
-            if(cx<Max &&!visited[cx] ){
-                visited[cx] = true;
+            if(cx<Max ){
+
                 queue.addFirst(new int[]{cx, time});
             }
 
