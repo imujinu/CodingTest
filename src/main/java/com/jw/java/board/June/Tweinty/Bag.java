@@ -36,7 +36,7 @@ public class Bag {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int weight = Integer.parseInt(st.nextToken());
             int price = Integer.parseInt(st.nextToken());
-            list.add(new ArrayList<>(new Node(weight, price)));
+//            list.add(new ArrayList<>(new Node(weight, price)));
         }
 
     }
