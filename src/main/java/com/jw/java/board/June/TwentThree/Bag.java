@@ -13,21 +13,27 @@ public class Bag {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
         int[] dp = new int[M+1];
-        int[] arr = new int[M+1];
+        int[] weight = new int[N];
+        int[] price = new int[N];
         for(int i=0 ; i<N; i++){
             st = new StringTokenizer(br.readLine());
-            int weight = Integer.parseInt(st.nextToken());
-            int value = Integer.parseInt(st.nextToken());
-            arr[weight] = value;
+            int temp1 = Integer.parseInt(st.nextToken());
+            int temp2 = Integer.parseInt(st.nextToken());
+            weight[i] = temp1;
+            price[i] = temp2;
         }
 
-        for(int i=1; i<=M; i++){
-            for(int j=M-i; j>0; j--){
-                dp[i+j] = Math.max(arr[i]+arr[j], arr[i+j]);
+        for(int i=0; i<N; i++){
+            for(int j=M; j>=weight[i]; j--){
+                dp[j] = Math.max(dp[j], dp[j- weight[i]]+price[i]);
             }
         }
 
-        bw.write(String.valueOf(arr[M]));
+       int sum = 0;
+        for(int i : dp){
+            sum = Math.max(sum,i);
+        }
+        bw.write(String.valueOf(dp[M]));
         bw.close();
 
     }
