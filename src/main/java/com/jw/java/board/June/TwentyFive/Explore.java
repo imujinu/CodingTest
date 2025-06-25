@@ -1,30 +1,47 @@
 package com.jw.java.board.June.TwentyFive;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.LinkedList;
+
 import java.util.Stack;
 
 public class Explore {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        char[] str1 = br.readLine().toCharArray();
-        char[] str2 = br.readLine().toCharArray();
+        String str1 = br.readLine();
+        String str2 = br.readLine();
         Stack<Character> stack = new Stack<>();
-        StringBuilder sb = new StringBuilder();
-        for(int i=str1.length-1; i>=0 ; i--){
-            char temp = str1[i];
-            if(temp==str2[str2.length-1]){
-                for(int j=i-1; j>=i-1-str2.length-1; j--){
-                    sb.insert(0,str1[j]);
+
+        for(int i=0; i<str1.length(); i++){
+            stack.push(str1.charAt(i));
+
+            if(stack.size()>=str2.length()){
+                // 스택에 크기가 str2보다 커질때마다 검사 수행
+                boolean check = true;
+                for(int j=0; j<str2.length(); j++){
+                    if(stack.get(stack.size()-str2.length()+j)!=str2.charAt(j)){
+                        check=false;
+                        break;
+                    }
                 }
+
+                if(check){
+                    for(int j=0; j<str2.length(); j++){
+                        stack.pop();
+                    }
+                }
+
             }
-
-
         }
-        StringBuilder sb = new StringBuilder();
-        StringBuilder sb2 = new StringBuilder();
+        if(stack.isEmpty()){
+            bw.write("FRULA");
+        }else{
+            for(char ch : stack){
+                bw.write(ch);
+            }
+        }
+        bw.close();
+
 
 
 
