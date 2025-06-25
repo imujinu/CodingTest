@@ -1,36 +1,44 @@
 package com.jw.java.board.June.TwentThree;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.List;
-
 public class Lcs {
-    static String str1, str2;
-    static int N,M;
-    static boolean[] visited;
-    static List<Character> list;
-    static void dfs(int x, int y, int depth){
-        if(y>M)return;
-        char ch = str1.charAt(x);
+    static Integer[][] dp;
+    static char[] ch1;
+    static char[] ch2;
+    static int dfs(int y, int x){
+        if(y==ch1.length || x==ch2.length)
+            return 0;
 
-        for(int i=y; i<M; i++){
-            if(!visited[i] && ch==str2.charAt(i)){
-                visited[i] = true;
-                list.add(ch);
-                dfs(x+1,y+1,depth+1);
-             }
+        if(dp[y][x]==null){
+            dp[y][x]=0;
+
+            if(ch1[y]==ch2[x]){
+                dp[y][x] = dfs(y+1,x+1)-1;
+            }
+            else{
+                dp[y][x] = Math.min(dfs(y+1,x), dfs(y,x+1));
+            }
+
         }
+
+        return dp[y][x];
+
+
+
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        str1 = br.readLine();
-        str2 = br.readLine();
-        N = str1.length();
-        M = str2.length();
-        visited= new boolean[M];
-        dfs(0,0,0);
+        ch1 = br.readLine().toCharArray();
+        ch2 = br.readLine().toCharArray();
 
-        bw.write(String.valueOf(list.size()));
-        bw.close();
+        dp = new Integer[ch1.length][ch2.length];
+
+        System.out.println(dfs(0, 0));
+
+
     }
 }
+
