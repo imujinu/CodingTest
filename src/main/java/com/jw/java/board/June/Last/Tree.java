@@ -4,55 +4,56 @@ import java.io.*;
 import java.util.*;
 
 public class Tree {
-    static int N;
+    static int N,maxLen,maxNode;
     static List<List<int[]>> list;
-    static List<List<Integer>> answer;
+    static boolean visited[];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        int N = Integer.parseInt(br.readLine());
-        list= new ArrayList<>();
+        N = Integer.parseInt(br.readLine());
+        list = new ArrayList<>();
+        visited = new boolean[N+1];
         for(int i=0; i<=N; i++){
             list.add(new ArrayList<>());
         }
-        for(int i=0; i<N; i++){
+
+        for(int i=0; i<N-1; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
-            int len = Integer.parseInt(st.nextToken());
-            list.get(start).add(new int[]{end,len});
+            int dist = Integer.parseInt(st.nextToken());
+            list.get(start).add(new int[]{end,dist});
+            list.get(end).add(new int[]{start,dist});
         }
-        answer = new ArrayList<>();
-        dfs(1, new ArrayList<Integer>());
-        Integer[] result = new Integer[answer.size()];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = 0;
-        }
-        for(int i=0; i<answer.size(); i++){
-            List<Integer> tempList = answer.get(i);
-            for(int num: tempList){
-                result[i]+=num;
-            }
-        }
-
-        Arrays.sort(result, Collections.reverseOrder());
-        int sum = result[0]+result[1];
-        bw.write(String.valueOf(sum));
+        int sum=0;
+        dfs(1,0);
+        sum+=maxLen;
+        maxLen=0;
+        visited= new boolean[N+1];
+        dfs(maxNode, 0);
+        sum+=maxLen;
+        bw.write(String.valueOf(maxLen));
         bw.close();
 
 
     }
-    static void dfs(int start, List<Integer> temp){
 
-        if(list.get(start).isEmpty()){
-            answer.add(new ArrayList<>(temp));
-            return;
+    static void dfs(int start, int dist){
+        visited[start] = true;
+
+        if(dist>maxLen){
+            maxLen=dist;
+            maxNode=start;
         }
-        for(int[] arr : list.get(start)){
-            temp.add(arr[1]);
-            dfs(arr[0], temp);
-            temp.remove(temp.size()-1);
+
+        for(int[] temp : list.get(start)){
+            int next = temp[0];
+            int nextLen = temp[1];
+            if(!visited[next]){
+                dfs(next,dist+nextLen);
+            }
         }
+
     }
 }
