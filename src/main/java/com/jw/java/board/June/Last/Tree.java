@@ -25,7 +25,22 @@ public class Tree {
         }
         answer = new ArrayList<>();
         dfs(1, new ArrayList<Integer>());
-        
+        Integer[] result = new Integer[answer.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = 0;
+        }
+        for(int i=0; i<answer.size(); i++){
+            List<Integer> tempList = answer.get(i);
+            for(int num: tempList){
+                result[i]+=num;
+            }
+        }
+
+        Arrays.sort(result, Collections.reverseOrder());
+        int sum = result[0]+result[1];
+        bw.write(String.valueOf(sum));
+        bw.close();
+
 
     }
     static void dfs(int start, List<Integer> temp){
