@@ -22,13 +22,15 @@ public class Bag {
         dp[0] = 0;
 
         for(int i=0; i<N; i++){
-            //중복처리 어떻게?
-            // 무조건 그 무게값보다 작으면 사용 X
-            //4 면 1,2,3 사용
+
             for(int j=M; j>=W[i]; j--){
-                if(M-W[i]>=0){
-                dp[j] =Math.max(dp[j],dp[M-W[i]] + V[i]) ;
-                }
+                    dp[j]= Math.max(dp[j], dp[j-W[i]] + V[i]);
+                    //W[i] ==3 dp3까지 값이 채워짐
+                    // j==3 dp[0] + V[3]
+                    // j==4 dp[1] + V[3]
+                    // j==5 dp[2] + V[3]
+                    // j==6 dp[3] + V[3]
+                    // j==7 dp[4] +V[3] dp 값이 0인데?
             }
         }
 
