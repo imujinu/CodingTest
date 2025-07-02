@@ -25,7 +25,7 @@ public class Hotel {
             for(int j=0; j<M; j++){
                 if(i-cost[j]>=0){
                    dp[i]=Math.max(dp[i],dp[i-cost[j]]+visitor[j]);
-                   // dp[1] = d[1-1] + coist[j]
+                   // dp[1] = d[1-1] + visitor[j]
                 }
             }
         }
