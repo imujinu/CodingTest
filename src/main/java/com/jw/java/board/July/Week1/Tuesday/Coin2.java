@@ -20,26 +20,17 @@ public class Coin2 {
         }
 
         int[] dp = new int[M+1];
-        dp[0] = 0;
         Arrays.fill(dp,-1);
-        for(int i=1; i<=M; i++){
-            int temp = Integer.MAX_VALUE;
-            for(int a : wallet ){
-                if(i-a>=0 && temp>dp[i-a]){
-                    if(dp[i-a]==-1){
-                     temp = -1;
-                    }else{
+        dp[0] =0;
 
-                    temp = dp[i-a];
-                    }
+        for(int i=1; i<=M; i++){
+            int min = Integer.MAX_VALUE;
+            for(int a : wallet){
+                if(i-a>=0 && min>dp[i-a] && dp[i-a]!=-1){
+                    min = Math.min(min,dp[i-a]);
                 }
             }
-
-            if(temp==-1)dp[i] =-1;
-            else{
-                dp[i] = temp+1;
-            }
-
+            if(min!=Integer.MAX_VALUE) dp[i] = min+1;
         }
 
 

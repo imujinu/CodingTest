@@ -48,24 +48,30 @@ public class Village {
         int total =0;
         int max = 0;
 
-        for(Node node : list){
-            if(union(node.now, node.next)){
-                total += node.dist;
-                max = Math.max(max,node.dist);
+        for(int i=0; i<M; i++){
+            int now = list.get(i).now;
+            int next = list.get(i).next;
+            int dist = list.get(i).dist;
+            if(union(now,next)){
+                total+=dist;
+                max = Math.max(max,dist);
             }
         }
-    }
 
-    static int find(int idx){
-        if(idx != parents[idx])parents[idx] = find(parents[idx]);
-        return parents[idx];
-    }
+        System.out.println(total-max);
 
-    static boolean union(int now, int next){
-        int rootA = find(now);
-        int rootB = find(next);
-        if(rootA==rootB)return false;
-        parents[next] = rootA;
-        return true;
+    }
+    static int find(int node){
+        if(node!=parents[node]){
+            parents[node] = find(parents[node]);
+        }
+        return parents[node];
+    }
+    static boolean union(int start, int next){
+        if(find(start)!=find(next)){
+            parents[next] = find(start);
+            return true;
+        }
+        return false;
     }
 }
