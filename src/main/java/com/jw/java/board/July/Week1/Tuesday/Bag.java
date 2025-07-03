@@ -1,6 +1,7 @@
 package com.jw.java.board.July.Week1.Tuesday;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
@@ -21,16 +22,11 @@ public class Bag {
         int[] dp = new int[M+1];
         dp[0] = 0;
 
-        for(int i=0; i<N; i++){
-
-            for(int j=M; j>=W[i]; j--){
-                    dp[j]= Math.max(dp[j], dp[j-W[i]] + V[i]);
-                    //W[i] ==3 dp3까지 값이 채워짐
-                    // j==3 dp[0] + V[3]
-                    // j==4 dp[1] + V[3]
-                    // j==5 dp[2] + V[3]
-                    // j==6 dp[3] + V[3]
-                    // j==7 dp[4] +V[3] dp 값이 0인데?
+        for(int i=M; i>=0; i--){
+            for(int j=0; j<N; j++){
+                    if(i-W[j]>=0){
+                        dp[i] = Math.max(dp[i],dp[i-W[j]]+V[j]);
+                    }
             }
         }
 
@@ -39,7 +35,9 @@ public class Bag {
         for(int i=1; i<=M; i++){
             max = Math.max(max,dp[i]);
         }
-
+        for(int i : dp){
+            System.out.println(i);
+        }
         System.out.println(max);
 
 
