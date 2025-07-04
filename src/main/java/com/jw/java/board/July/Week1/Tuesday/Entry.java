@@ -10,7 +10,7 @@ public class Entry {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        long M = Long.parseLong(st.nextToken());
         long[] arr = new long[N];
 
         for(int i=0; i<N; i++){
@@ -18,20 +18,22 @@ public class Entry {
         }
         Arrays.sort(arr);
 
-        long left=1;
+        long left=0;
         long right = arr[arr.length-1]*M;
         long result = Long.MAX_VALUE;
-        while(left<right){
+        while(left<=right){
             long mid = (left+right)/2;
             long temp = 0;
             for(long i : arr){
+                if(temp >= M){
+                    break;
+                }
                 temp+= mid/i;
             }
 
-
-
             if(temp>=M){
-                right= mid;
+                right= mid-1;
+                result=Math.min(result,mid);
             }
             else{
 
@@ -39,7 +41,7 @@ public class Entry {
             }
 
         }
-        bw.write(String.valueOf(left));
+        bw.write(String.valueOf(result));
         bw.close();
     }
 }
