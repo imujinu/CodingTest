@@ -13,36 +13,25 @@ public class Numarr {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-
+        int[] arr = new int[N+1];
         st = new StringTokenizer(br.readLine());
-        long[] arr = new long[N+1];
         for(int i=0; i<N; i++){
-            int num = Integer.parseInt(st.nextToken());
-            arr[i] = num;
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
         int left =0;
-        int right=0;
-        long sum =0;
-        long size = Long.MAX_VALUE;
-
-        while(left<arr.length && right<arr.length){
+        int right =0;
+        int size = Integer.MAX_VALUE;
+        int sum =0 ;
+        while(left<=N && right<=N){
             if(sum>=M){
                 size=Math.min(size,right-left);
-            }
-            if(sum>=M){
                 sum-=arr[left++];
             }else{
                 sum+=arr[right++];
             }
-
         }
+        System.out.println(size==Integer.MAX_VALUE? 0 : size)   ;
 
-        if(size==Long.MAX_VALUE){
-            bw.write(0);
-        }else{
-            bw.write(String.valueOf(size));
-        }
-        bw.close();
     }
 }
