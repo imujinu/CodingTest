@@ -32,6 +32,6 @@ public class Numarr {
             }
         }
         System.out.println(size==Integer.MAX_VALUE? 0 : size)   ;
-
+        System.out.println();
     }
 }
