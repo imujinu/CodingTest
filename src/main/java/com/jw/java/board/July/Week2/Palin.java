@@ -59,6 +59,7 @@
                     }
                 }
                 int result = end-start+1;
+                System.out.println();
                 if(result==max- 1)return true;
                 else{
                     return false;
